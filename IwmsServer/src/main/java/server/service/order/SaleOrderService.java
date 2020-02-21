@@ -2,6 +2,7 @@ package server.service.order;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Service;
 import server.base.SystemReq;
 import server.dao.order.SaleOrderDao;
@@ -17,8 +18,12 @@ public class SaleOrderService {
     public void addSaleOrder(SaleOrder saleOrder){
         saleOrderDao.save(saleOrder);
     }
-    public List<SaleOrder> findAll(){
-        return saleOrderDao.findAll();
+    public List<SaleOrder> findAll(String roleUserId,String fid){
+        SaleOrder saleOrder = new SaleOrder();
+        saleOrder.setFid(fid);
+        saleOrder.setSalesManId(roleUserId);
+        Example example = Example.of(saleOrder);
+        return saleOrderDao.findAll(example);
     }
     public SaleOrder findById(SystemReq req){
         String saleOrderId = req.getSaleOrderId();

@@ -4,10 +4,11 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import server.base.Response;
+import server.util.JwtToken;
 
 import java.io.File;
 
-
+@JwtToken
 @RestController
 @CrossOrigin
 @RequestMapping("/advert")

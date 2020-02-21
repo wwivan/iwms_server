@@ -1,6 +1,6 @@
 <template>
     <div>
-        <h1>{{id?'编辑':'新增'}}订单</h1>
+        <h1>{{id?'编辑':'新增'}}明细单</h1>
         <el-steps :active="active" finish-status="success">
             <el-step title="新建销售主单"></el-step>
             <el-step title="新增销售明细单"></el-step>
@@ -22,9 +22,6 @@
                     <el-form-item label="收款金额">
                         <el-input v-model="model.price"></el-input>
                     </el-form-item>
-<!--                    <el-form-item label="所属工厂">-->
-<!--                        <el-input v-model="model.fid"></el-input>-->
-<!--                    </el-form-item>-->
                     <el-form-item label="客户">
                         <el-select v-model="model.customerId">
                             <el-option v-for="item of customers"

@@ -12,6 +12,33 @@ public class SystemReq {
     private String roleUserId;
     private String sysUserId;
     private String SaleOrderId;
+    private String materialCategoryId;
+    private String materialId;
+    private String saleOrderDetailId;
+
+    public String getSaleOrderDetailId() {
+        return saleOrderDetailId;
+    }
+
+    public void setSaleOrderDetailId(String saleOrderDetailId) {
+        this.saleOrderDetailId = saleOrderDetailId;
+    }
+
+    public String getMaterialId() {
+        return materialId;
+    }
+
+    public void setMaterialId(String materialId) {
+        this.materialId = materialId;
+    }
+
+    public String getMaterialCategoryId() {
+        return materialCategoryId;
+    }
+
+    public void setMaterialCategoryId(String materialCategoryId) {
+        this.materialCategoryId = materialCategoryId;
+    }
 
     public String getSaleOrderId() {
         return SaleOrderId;

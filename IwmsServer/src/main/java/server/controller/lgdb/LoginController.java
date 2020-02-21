@@ -64,6 +64,8 @@ public class LoginController {
         boolean login = roleUserService.login(req);
         if(!login){
             return Response.failed(-1,"登陆失败");
+        }else if(fid==null){
+            return Response.failed(-1,"请选择所在工厂");
         }else{
 
             JSONObject object=new JSONObject();

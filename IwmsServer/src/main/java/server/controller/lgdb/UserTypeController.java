@@ -10,9 +10,10 @@ import server.base.Response;
 import server.base.SystemReq;
 import server.entity.system.UserType;
 import server.service.system.UserTypeService;
+import server.util.JwtToken;
 
 import java.util.List;
-
+@JwtToken
 @RestController
 @CrossOrigin
 @RequestMapping("/userType")

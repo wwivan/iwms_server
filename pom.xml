@@ -9,11 +9,11 @@
     <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>Iwms_server</module>
+        <module>IwmsServer</module>
         <module>SystemManage</module>
         <module>BasicConfig</module>
         <module>PCWeb</module>
-    </modules>
+    </modules>S
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>

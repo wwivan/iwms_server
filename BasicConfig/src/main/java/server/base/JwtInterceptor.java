@@ -40,9 +40,7 @@ public class JwtInterceptor implements HandlerInterceptor {
                 if (token == null) {
                     throw new RuntimeException("no have token，请重新登录");
                 }
-                // 获取 token 中的 userId
                 String userId = JwtUtil.getUserId(token);
-                System.out.println("用户id:" + userId);
                 // 验证 token
                 JwtUtil.checkSign(token);
             }

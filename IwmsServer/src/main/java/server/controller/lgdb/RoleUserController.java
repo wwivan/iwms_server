@@ -12,13 +12,14 @@ import server.entity.system.SysUser;
 import server.entity.system.UserType;
 import server.service.system.RoleUserService;
 import server.service.system.UserTypeService;
+import server.util.JwtToken;
 import server.util.JwtUtil;
 
 import java.util.List;
 
 import static server.util.Util.isMobile;
 
-
+@JwtToken
 @RestController
 @CrossOrigin
 @RequestMapping("/roleUser")
@@ -53,6 +54,7 @@ public class RoleUserController {
      * 查看系统用户
      * @return
      */
+    @JwtToken
     @RequestMapping("/list")
     public Response findAll( @RequestHeader(value = "Authorization") String token) {
         System.out.println("token=" + token);
@@ -73,6 +75,12 @@ public class RoleUserController {
         return Response.success(all);
     }
 
+    /**
+     * 查看客户列表
+     * @param token
+     * @return
+     */
+    @JwtToken
     @RequestMapping("/customers")
     public Response findAllCustomer( @RequestHeader(value = "Authorization") String token) {
         String userId = JwtUtil.getUserId(token);
@@ -80,6 +88,24 @@ public class RoleUserController {
         JSONObject jsonObject =(JSONObject) JSONObject.parseObject(userId);
         String fid =(String) jsonObject.get("fid");
         UserType customer = userTypeService.findByName("客户");
+        String utid = customer.getId();
+        List<RoleUser> all;
+        all = roleUserService.findAll(fid,utid);
+        return Response.success(all);
+    }
+    /**
+     * 查看客户列表
+     * @param token
+     * @return
+     */
+    @JwtToken
+    @RequestMapping("/suppliers")
+    public Response findAllSuppliers( @RequestHeader(value = "Authorization") String token) {
+        String userId = JwtUtil.getUserId(token);
+        System.out.println(userId);
+        JSONObject jsonObject =(JSONObject) JSONObject.parseObject(userId);
+        String fid =(String) jsonObject.get("fid");
+        UserType customer = userTypeService.findByName("供应商");
         String utid = customer.getId();
         List<RoleUser> all;
         all = roleUserService.findAll(fid,utid);

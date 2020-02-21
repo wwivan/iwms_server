@@ -4,23 +4,14 @@
             <el-menu router :default-openeds="['1']" unique-opened :default-active="$route.path">
                 <el-submenu index="1">
                     <template slot="title">
-                        <i class="el-icon-message"></i>订单管理
+                        <i class="el-icon-message"></i>销售管理
                     </template>
                     <el-menu-item-group>
-                        <template slot="title">销售管理</template>
+<!--                        <template slot="title">销售管理</template>-->
                         <el-menu-item index="/factory/create">报价单</el-menu-item>
                         <el-menu-item index="/factory/list">报价订单审核</el-menu-item>
                         <el-menu-item index="/saleOrder/list">销售单</el-menu-item>
                         <el-menu-item index="/factory/list">销售订单报告</el-menu-item>
-                    </el-menu-item-group>
-                    <el-menu-item-group>
-                        <template slot="title">采购管理</template>
-                        <el-menu-item index="/userType/create">物料需求</el-menu-item>
-                        <el-menu-item index="/userType/list">物料需求审核</el-menu-item>
-                        <el-menu-item index="/userType/list">采购计划</el-menu-item>
-                        <el-menu-item index="/userType/list">采购计划审核</el-menu-item>
-                        <el-menu-item index="/userType/list">采购订单</el-menu-item>
-                        <el-menu-item index="/userType/list">采购订单报告</el-menu-item>
                     </el-menu-item-group>
                 </el-submenu>
             </el-menu>

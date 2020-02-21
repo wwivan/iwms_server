@@ -2,19 +2,33 @@ package server.entity.order;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
+import server.base.SnowflakeIdWorker;
+import server.entity.system.RoleUser;
 
 import java.util.Date;
 
 @Data
 public class SaleOrder {
+
+
+
     @Id
     private String id;
-    private String orderNo;//销售单号
+    private String orderNo;
     private Long amount;// 应付金额( 总金额 )
     private Long price;//收款金额   (预付款)
     private String fid; //所属工厂
-
     private String customerId; //客户id
+    private RoleUser customer; //客户
+
+    public RoleUser getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(RoleUser customer) {
+        this.customer = customer;
+    }
+
     private String salesManId; //  销售员id
     private String approverUserId;//审批人
 
@@ -50,13 +64,13 @@ public class SaleOrder {
     public void setId(String id) {
         this.id = id;
     }
-
+    public void setOrderNo() {
+        SnowflakeIdWorker snowflakeIdWorker = new SnowflakeIdWorker(0,0);
+        Long orderNo = snowflakeIdWorker.nextId();
+        this.orderNo = orderNo.toString();
+    }
     public String getOrderNo() {
         return orderNo;
-    }
-
-    public void setOrderNo(String orderNo) {
-        this.orderNo = orderNo;
     }
 
     public Long getAmount() {

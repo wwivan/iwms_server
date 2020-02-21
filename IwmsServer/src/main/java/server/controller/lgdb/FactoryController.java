@@ -10,9 +10,10 @@ import server.base.Response;
 import server.base.SystemReq;
 import server.entity.system.Factory;
 import server.service.system.FactoryService;
+import server.util.JwtToken;
 
 import java.util.List;
-
+@JwtToken
 @RestController
 @CrossOrigin
 @RequestMapping("/factory")

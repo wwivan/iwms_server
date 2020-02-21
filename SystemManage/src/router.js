@@ -15,6 +15,11 @@ import RoleUserEdit from './views/RoleUserEdit.vue'
 import RoleUserList from './views/RoleUserList.vue'
 import SysUserEdit from './views/SysUserEdit.vue'
 import SysUserList from './views/SysUserList.vue'
+import MaterialCategoryEdit from "./views/MaterialCategoryEdit";
+import MaterialCategoryList from "./views/MaterialCategoryList";
+import MaterialEdit from "./views/MaterialEdit";
+import MaterialList from "./views/MaterialList";
+
 
 Vue.use(Router)
 
@@ -112,6 +117,32 @@ const router = new Router({
         {
           path: "/sysUser/list",
           component: SysUserList
+        },
+        {
+          path: "/materialCategory/create",
+          component: MaterialCategoryEdit
+        },
+        {
+          path: "/materialCategory/edit/:id",
+          component: MaterialCategoryEdit,
+          props: true
+        },
+        {
+          path: "/materialCategory/list",
+          component: MaterialCategoryList
+        },
+        {
+          path: "/material/create",
+          component: MaterialEdit
+        },
+        {
+          path: "/material/edit/:id",
+          component: MaterialEdit,
+          props: true
+        },
+        {
+          path: "/material/list",
+          component: MaterialList
         },
       ]
     },

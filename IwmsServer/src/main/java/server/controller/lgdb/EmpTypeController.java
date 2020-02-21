@@ -9,9 +9,10 @@ import server.base.Response;
 import server.base.SystemReq;
 import server.entity.system.EmployeeType;
 import server.service.system.EmpTypeService;
+import server.util.JwtToken;
 
 import java.util.List;
-
+@JwtToken
 @RestController
 @CrossOrigin
 @RequestMapping("/empType")

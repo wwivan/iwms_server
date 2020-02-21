@@ -2,7 +2,7 @@
     <el-container style="height: 100vh;">
         <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
             <el-menu router :default-openeds="['3']" unique-opened :default-active="$route.path">
-                <el-submenu index="1">
+                <el-submenu index="1" v-if="fid=='admin'">
                     <template slot="title">
                         <i class="el-icon-message"></i>内容管理
                     </template>
@@ -18,7 +18,7 @@
                     </el-menu-item-group>
                 </el-submenu>
 
-                <el-submenu index="2">
+                <el-submenu index="2" v-if="fid=='admin'">
                     <template slot="title">
                         <i class="el-icon-message"></i>部门管理
                     </template>
@@ -42,6 +42,16 @@
                         <template slot="title">用户管理</template>
                         <el-menu-item index="/roleUser/create">新建用户</el-menu-item>
                         <el-menu-item index="/roleUser/list">用户列表</el-menu-item>
+                    </el-menu-item-group>
+                    <el-menu-item-group>
+                        <template slot="title">物料分类</template>
+                        <el-menu-item index="/materialCategory/create">新建物料分类</el-menu-item>
+                        <el-menu-item index="/materialCategory/list">物料分类列表</el-menu-item>
+                    </el-menu-item-group>
+                    <el-menu-item-group>
+                        <template slot="title">物料管理</template>
+                        <el-menu-item index="/material/create">新建物料</el-menu-item>
+                        <el-menu-item index="/material/list">物料列表</el-menu-item>
                     </el-menu-item-group>
                 </el-submenu>
 

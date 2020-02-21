@@ -44,12 +44,15 @@
           localStorage.token = res.data.data.token;
           localStorage.fid = res.data.data.fid;
           localStorage.utid= res.data.data.userTypeId;
+          this.$message({
+            type: "success",
+            message: res.data.message
+          })
           this.$router.push("/");
+        }else{
+          this.$message.error(res.data.message);
         }
-        this.$message({
-          type: "success",
-          message: res.data.message
-        });
+
       },
       async fetchFactories() {
         const res = await this.$http.get("factory/list");

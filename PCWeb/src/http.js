@@ -19,6 +19,9 @@ http.interceptors.request.use(function (config) {
 })
 
 http.interceptors.response.use(res => { //拦截错误并返回错误信息
+    if(res.data.message=="token 无效，请重新获取"){
+        router.push('/login')
+    }
     return res
 }, err => {
     Vue.prototype.$message({

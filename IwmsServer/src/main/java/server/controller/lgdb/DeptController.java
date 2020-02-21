@@ -10,9 +10,10 @@ import server.base.Response;
 import server.base.SystemReq;
 import server.entity.system.Department;
 import server.service.system.DeptService;
+import server.util.JwtToken;
 
 import java.util.List;
-
+@JwtToken
 @RestController
 @CrossOrigin
 @RequestMapping("/dept")

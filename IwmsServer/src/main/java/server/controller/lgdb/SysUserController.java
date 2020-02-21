@@ -13,7 +13,7 @@ import server.service.system.SysUserService;
 import server.util.JwtToken;
 
 import java.util.List;
-
+@JwtToken
 @RestController
 @RequestMapping("/sysUser")
 @CrossOrigin
